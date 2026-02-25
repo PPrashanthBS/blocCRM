@@ -1,0 +1,101 @@
+{
+  "name": "bloc",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1BM9IY5-WitIonlh32gnl6MtB221vskojRpxFEb65hSM",
+          "mode": "list",
+          "cachedResultName": "bloc",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BM9IY5-WitIonlh32gnl6MtB221vskojRpxFEb65hSM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BM9IY5-WitIonlh32gnl6MtB221vskojRpxFEb65hSM/edit#gid=0"
+        },
+        "includeInOutput": "both",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        -80
+      ],
+      "id": "080d555c-3838-4fa9-ae13-26ab1db90bb0",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "i9tTyvdBG7YZdW8T",
+          "name": "bloc"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "collection": "leads",
+        "updateKey": "Phone",
+        "fields": "Name, Phone, Timestamp, Lead Source, City, State, Any additional relevant metadata",
+        "upsert": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        -80
+      ],
+      "id": "f5187970-51c7-4989-a2e5-af86e68de0d3",
+      "name": "Update documents",
+      "credentials": {
+        "mongoDb": {
+          "id": "zp8o58zVr1c8EdwQ",
+          "name": "MongoDB account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Update documents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update documents": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "cf254b8d-979a-43b9-8b58-e40bbc375f4f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "918326bd65edfcf039ab6ed0593c1e2f72db2d3947d249ff7f8de3045a340b6c"
+  },
+  "id": "9S4gUDjTodDulhHJ0RZUg",
+  "tags": []
+}
