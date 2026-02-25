@@ -91,4 +91,4 @@ Ensure you have the workflow JSON file (e.g., `workflow.json`) located in your p
 
 Below is the high-level system design of the blocCRM platform:
 
-![blocCRM System Design](./public/System_design(CRM).png)
+![blocCRM System Design](client/public/System_design(CRM).png)
